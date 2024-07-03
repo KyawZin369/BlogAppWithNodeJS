@@ -1,0 +1,26 @@
+<%- include("./partials/header.ejs") %>
+<body class="home-page">
+
+    <%- include("./partials/Nav.ejs") %>
+
+    <div class="container">
+        <h1>Home Page</h1>
+        <p>Welcome to our Home Page, your ultimate destination for all things shopping! Whether you're a tech enthusiast seeking the latest gadgets or a fashion-forward individual looking for the trendiest pieces, we've got you covered. Explore our diverse range of high-quality products, from cutting-edge electronics to stylish apparel and unique home decor. Enjoy a seamless online shopping experience with intuitive navigation, secure payment options, and fast delivery services. At our store, we prioritize your satisfaction with prompt customer support and hassle-free returns. Discover the perfect blend of innovation and style, tailored just for you. Happy shopping!</p>
+        <hr>
+        <h1>Blog</h1>
+        <% if(blog.length > 0) { %>
+            <div class="blog-section">
+                <% blog.forEach(blog => { %>
+                    <div class="blog-post">
+                        <a href="/blogs/<%= blog.id %>">
+                            <h2><%= blog.title %></h2>
+                            <h4>By <%= blog.author %></h4>
+                            <p><%= blog.content %></p>
+                        </a>
+                    </div>
+                <% }); %>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
